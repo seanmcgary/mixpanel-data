@@ -35,3 +35,11 @@ mp.getEventPropertyValues('some event', 'some property')
 	.fail(function(){
 		console.log(arguments);
 	});
+
+mp.getEventNames()
+	.then(function(data){
+		console.log(util.inspect(data, true, 5, true));
+	})
+	.fail(function(){
+		console.log(arguments);
+	});

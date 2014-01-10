@@ -1,6 +1,6 @@
 {
   "name": "mixpanel-data-wrapper",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Wrapper for the Mixpanel data API",
   "author": "Sean McGary <sean@seanmcgary.com>",
   "main": "index.js",
