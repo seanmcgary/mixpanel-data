@@ -1,17 +1,12 @@
 var mixpanel = require('../index');
+var util = require('util');
 
 var mp = new mixpanel({
 	apiKey: '',
 	apiSecret: ''
 });
 
-var now = new Date();	
-var from = new Date((new Date()).setUTCDate(now.getUTCDate() - 5));
-var expire = new Date((new Date()).setUTCMinutes(now.getUTCMinutes() + 5));
-
-console.log(now);
-console.log(from);
-
+/*
 mp.getData('/events/properties', {
 	interval: 7,
 	unit: 'day',
@@ -23,4 +18,20 @@ mp.getData('/events/properties', {
 	console.log(arguments);
 }).fail(function(){
 	console.log(arguments);
-});
+});*/
+
+mp.getEventProperties('some event')
+	.then(function(data){
+		console.log(util.inspect(data, true, 5, true));
+	})
+	.fail(function(){
+		console.log(arguments);
+	});
+
+mp.getEventPropertyValues('some event', 'some property')
+	.then(function(data){
+		console.log(util.inspect(data, true, 5, true));
+	})
+	.fail(function(){
+		console.log(arguments);
+	});
